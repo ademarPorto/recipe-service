@@ -1,2 +1,0 @@
-# recipe-service
-recipe service

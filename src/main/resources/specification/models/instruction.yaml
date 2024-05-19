@@ -1,0 +1,18 @@
+components:
+  schemas:
+    Instruction:
+      type: object
+      properties:
+        step:
+          description: The order of the instruction.
+          type: integer
+          example: 1
+          min: 1
+        description:
+          description: The instruction for the recipe.yaml.
+          type: string
+          pattern: '^(?!\s*$).+'
+          example: 'Preheat oven to 400°F (200°C).'
+      required:
+        - step
+        - description

@@ -1,0 +1,30 @@
+info:
+  name: '@project.name@'
+  version: '@project.version@'
+
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/recipes
+    driver-class-name: org.postgresql.Driver
+    username: user
+    password: password
+    jpa:
+      hibernate:
+        ddl-auto: validate
+  flyway:
+    enabled: true
+    url: ${spring.datasource.url}
+    user: user
+    password: password
+
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
+  api-docs:
+    path: /api-docs
+
+logging:
+  level:
+    org:
+      hibernate:
+        SQL: DEBUG

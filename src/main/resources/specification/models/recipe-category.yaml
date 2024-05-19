@@ -1,0 +1,11 @@
+components:
+  schemas:
+    RecipeCategory:
+      title: Recipe Category
+      description: The recipe's category.
+      type: string
+      enum:
+        - APPETIZER
+        - START
+        - MAIN_COURSE
+        - DESSERT

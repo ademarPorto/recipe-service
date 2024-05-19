@@ -1,0 +1,11 @@
+components:
+  schemas:
+    RecipesResponse:
+      type: object
+      properties:
+        recipes:
+          type: array
+          items:
+            $ref: "recipe.yaml#/components/schemas/Recipe"
+        total_of_records:
+          type: integer

@@ -1,0 +1,58 @@
+components:
+  schemas:
+    Recipe:
+      type: object
+      properties:
+        id:
+          description: Internal identification
+          type: string
+          format: uuid
+          example: '95538fe2-31cf-414b-89e2-879609e9812a'
+        name:
+          description: The recipe's name.
+          type: string
+          #Pattern used to validate empty strings.
+          pattern: '^(?!\s*$).+'
+          example: 'Honey Garlic Salmon'
+        description:
+          description: A short description for the recipe.
+          type: string
+          #Pattern used to validate empty strings.
+          pattern: '^(?!\s*$).+'
+          example: 'A simple and flavorful baked salmon recipe with a sweet and savory honey garlic glaze.'
+        preparation_time:
+          description: The total preparation time.
+          type: integer
+          min: 0
+          example: 20
+        cook_time:
+          description: The total cook time.
+          type: integer
+          min: 0
+          example: 10
+        servings:
+          description: The total of persons the recipe can serve.
+          type: integer
+          min: 0
+          example: 4
+        vegetarian:
+          description: Flag to specify whether the recipe is vegetarian or not.
+          type: boolean
+          example: false
+        category:
+          $ref: "recipe-category.yaml#/components/schemas/RecipeCategory"
+        ingredients:
+          type: array
+          items:
+            $ref: "ingredient.yaml#/components/schemas/Ingredient"
+        instructions:
+          type: array
+          items:
+            $ref: "instruction.yaml#/components/schemas/Instruction"
+      required:
+        - name
+        - servings
+        - preparation_time
+        - vegetarian
+        - category
+        - ingredients

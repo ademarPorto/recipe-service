@@ -1,0 +1,235 @@
+openapi: 3.0.1
+info:
+  title: Recipe Service Spec
+  description: Recipe Service Specification
+  version: "1.0.0"
+  contact:
+    name: Ademar Porto
+    email: ademar@outlook.com.br
+servers:
+  - url: http://localhost:8080
+
+paths:
+  /v1/recipes:
+    get:
+      tags:
+        - recipes
+      description:  Endpoint to retrieve the stored recipes.
+      operationId: get-recipes
+      parameters:
+        - $ref: ./parameters/search-by.yaml
+        - $ref: ./parameters/servings.yaml
+        - $ref: ./parameters/ingredient.yaml
+        - $ref: ./parameters/ingredient-included.yaml
+        - $ref: ./parameters/vegetarian.yaml
+      responses:
+        200:
+          description: ok
+          content:
+            application/json:
+              schema:
+                $ref: "../models/recipes-response.yaml#/components/schemas/RecipesResponse"
+        400:
+          description: Bad request.
+          content:
+            application/json:
+              schema:
+                $ref: "../models/error.yaml#/components/schemas/Error"
+        401:
+          description: Unauthorized.
+          content:
+            application/json:
+              schema:
+                $ref: "../models/error.yaml#/components/schemas/Error"
+        403:
+          description: Forbidden.
+          content:
+            application/json:
+              schema:
+                $ref: "../models/error.yaml#/components/schemas/Error"
+        404:
+          description: Not Found.
+          content:
+            application/json:
+              schema:
+                $ref: "../models/error.yaml#/components/schemas/Error"
+        500:
+          description: Unexpected error.
+          content:
+            application/json:
+              schema:
+                $ref: "../models/error.yaml#/components/schemas/Error"
+        503:
+          description: Service Unavailable.
+          content:
+            application/json:
+              schema:
+                $ref: "../models/error.yaml#/components/schemas/Error"
+    post:
+      tags:
+        - recipes
+      description: Endpoint to create new recipes.
+      operationId: create-recipes
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "../models/recipes-request.yaml#/components/schemas/RecipesRequest"
+      responses:
+        200:
+          description: ok
+          content:
+            application/json:
+              schema:
+                $ref: "../models/create-recipes-response.yaml#/components/schemas/CreateRecipesResponse"
+        400:
+          description: Bad request.
+          content:
+            application/json:
+              schema:
+                $ref: "../models/error.yaml#/components/schemas/Error"
+        401:
+          description: Unauthorized.
+          content:
+            application/json:
+              schema:
+                $ref: "../models/error.yaml#/components/schemas/Error"
+        403:
+          description: Forbidden.
+          content:
+            application/json:
+              schema:
+                $ref: "../models/error.yaml#/components/schemas/Error"
+        404:
+          description: Not Found.
+          content:
+            application/json:
+              schema:
+                $ref: "../models/error.yaml#/components/schemas/Error"
+        500:
+          description: Unexpected error.
+          content:
+            application/json:
+              schema:
+                $ref: "../models/error.yaml#/components/schemas/Error"
+        503:
+          description: Service Unavailable.
+          content:
+            application/json:
+              schema:
+                $ref: "../models/error.yaml#/components/schemas/Error"
+
+  /v1/recipes/{recipe-id}:
+    put:
+      tags:
+        - recipes
+      description: Endpoint to update an existed recipes.
+      operationId: update-recipes
+      parameters:
+        - name: recipe-id
+          in: path
+          description: recipe id.
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "../models/recipes-request.yaml#/components/schemas/RecipesRequest"
+      responses:
+        200:
+          description: ok
+          content:
+            application/json:
+              schema:
+                $ref: "../models/update-recipes-response.yaml#/components/schemas/UpdateRecipesResponse"
+        400:
+          description: Bad request.
+          content:
+            application/json:
+              schema:
+                $ref: "../models/error.yaml#/components/schemas/Error"
+        401:
+          description: Unauthorized.
+          content:
+            application/json:
+              schema:
+                $ref: "../models/error.yaml#/components/schemas/Error"
+        403:
+          description: Forbidden.
+          content:
+            application/json:
+              schema:
+                $ref: "../models/error.yaml#/components/schemas/Error"
+        404:
+          description: Not Found.
+          content:
+            application/json:
+              schema:
+                $ref: "../models/error.yaml#/components/schemas/Error"
+        500:
+          description: Unexpected error.
+          content:
+            application/json:
+              schema:
+                $ref: "../models/error.yaml#/components/schemas/Error"
+        503:
+          description: Service Unavailable.
+          content:
+            application/json:
+              schema:
+                $ref: "../models/error.yaml#/components/schemas/Error"
+    delete:
+      tags:
+        - recipes
+      description: Endpoint to delete delete recipes.
+      operationId: delete-recipes
+      parameters:
+        - name: recipe-id
+          in: path
+          description: recipe id.
+          required: true
+          schema:
+            type: string
+      responses:
+        204:
+          description: Response representing that the recipe was successfully deleted.
+        400:
+          description: Bad request.
+          content:
+            application/json:
+              schema:
+                $ref: "../models/error.yaml#/components/schemas/Error"
+        401:
+          description: Unauthorized.
+          content:
+            application/json:
+              schema:
+                $ref: "../models/error.yaml#/components/schemas/Error"
+        403:
+          description: Forbidden.
+          content:
+            application/json:
+              schema:
+                $ref: "../models/error.yaml#/components/schemas/Error"
+        404:
+          description: Not Found.
+          content:
+            application/json:
+              schema:
+                $ref: "../models/error.yaml#/components/schemas/Error"
+        500:
+          description: Unexpected error.
+          content:
+            application/json:
+              schema:
+                $ref: "../models/error.yaml#/components/schemas/Error"
+        503:
+          description: Service Unavailable.
+          content:
+            application/json:
+              schema:
+                $ref: "../models/error.yaml#/components/schemas/Error"

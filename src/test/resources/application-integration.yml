@@ -1,0 +1,11 @@
+spring:
+  datasource:
+    url: jdbc:hsqldb:mem:recipes;DB_CLOSE_DELAY=-1;hsqldb.tx=mvcc;sql.ignore_case=true
+    driver-class-name: org.hsqldb.jdbc.JDBCDriver
+    username: sa
+    password:
+    jpa:
+      hibernate:
+        ddl-auto: create-drop
+  flyway:
+    enabled: false

@@ -1,0 +1,8 @@
+components:
+  schemas:
+    CreateRecipesResponse:
+      type: object
+      properties:
+        recipe:
+          type: object
+          $ref: "recipe.yaml#/components/schemas/Recipe"

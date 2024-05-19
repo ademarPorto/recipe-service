@@ -1,0 +1,6 @@
+name: isVegetarian
+in: query
+schema:
+  type: boolean
+  default: false
+description: Filter whether a recipe is vegetarian or not.

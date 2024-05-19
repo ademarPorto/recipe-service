@@ -1,0 +1,7 @@
+name: ingredient
+in: query
+schema:
+  type: string
+  minLength: 1
+  maxLength: 100
+description: Filter by a specific ingredient.

@@ -1,0 +1,6 @@
+name: servings
+in: query
+schema:
+  type: integer
+  min: 0
+description: Filter by the total of servings.

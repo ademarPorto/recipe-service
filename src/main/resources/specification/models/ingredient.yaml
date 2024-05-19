@@ -1,0 +1,26 @@
+components:
+  schemas:
+    Ingredient:
+      type: object
+      properties:
+        name:
+          description: The ingredient's name.
+          type: string
+          #Pattern used to validate empty strings.
+          pattern: '^(?!\s*$).+'
+          example: 'Salmon'
+        quantity:
+          description: The amount of ingredients.
+          type: number
+          format: double
+          example: 1000.0
+          min: 0
+        unitOfMeasure:
+          description: The unit of measure for the ingredient.
+          type: string
+          pattern: '^(?!\s*$).+'
+          example: 'KG'
+      required:
+        - name
+        - quantity
+        - UnitOfMeasure

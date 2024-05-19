@@ -1,0 +1,5 @@
+name: isIngredientIncluded
+in: query
+schema:
+  type: boolean
+description: Filter whether a ingredient is present or not in the recipe.
