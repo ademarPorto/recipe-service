@@ -6,7 +6,16 @@ v1.0, 2024-May-19
 
 == Introduction
 Service responsible to manage the user's favorite recipes, the users can consume its APIs to fetch, insert,
-update and delete recipes.
+update and delete recipes. This project was developed using Hexagonal Architecture to organize its code base,
+Following are some key points of the Hexagonal Architecture:
+
+* Separation of Concerns
+* Improved Testability
+* Flexibility and Adaptability
+* Increased Portability
+* Loose Coupling
+* Improved Maintainability
+* Focus on Domain Logic
 
 == Stack
 
